@@ -1,0 +1,4 @@
+numpy
+argparse
+onnx==1.15.0
+onnxruntime==1.16.1
