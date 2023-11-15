@@ -1,0 +1,26 @@
+mpas_48km_raw: &mpas_48km
+  type: 'mpas_48km_full_random_finetune'
+  data_dir: 'mpas:s3://integration_for_assimilation'
+  graph_structure_dir: '/mnt/cache/gongjunchao/workdir/integration_for_assimilation/Graph_structure/MPAS_data_structure'
+  file_stride: 4min
+  sample_stride: 3
+  input_length: 1
+  sample_steps: [0, 1]
+  path_node_mean: /mnt/cache/gongjunchao/workdir/integration_for_assimilation/preprocess/node_mean.npy
+  path_node_var: /mnt/cache/gongjunchao/workdir/integration_for_assimilation/preprocess/node_var.npy
+  path_edge_mean: /mnt/cache/gongjunchao/workdir/integration_for_assimilation/preprocess/edge_mean.npy
+  path_edge_var: /mnt/cache/gongjunchao/workdir/integration_for_assimilation/preprocess/edge_var.npy
+  path_t_node_mean: /mnt/cache/gongjunchao/workdir/integration_for_assimilation/preprocess/norm_tss3_node_mean.npy
+  path_t_node_var: /mnt/cache/gongjunchao/workdir/integration_for_assimilation/preprocess/norm_tss3_node_var.npy
+  path_t_edge_mean: /mnt/cache/gongjunchao/workdir/integration_for_assimilation/preprocess/norm_tss3_edge_mean.npy
+  path_t_edge_var: /mnt/cache/gongjunchao/workdir/integration_for_assimilation/preprocess/norm_tss3_edge_var.npy
+  path_statics_cfg: /mnt/cache/gongjunchao/workdir/integration_for_assimilation/configs/mpas_48km/cal_statics.yaml
+  single_level_cell_vnames: [] #10
+  multi_level_cell_vnames: ['theta','rho', 'qv'] # only u，w，theta，rho，qv are state variables used in the model
+  multi_level_P1_cell_vnames: ['w'] #'zgrid' #1
+  multi_level_edge_vnames: ['u'] #1
+  level_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]
+  P1_level_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+  replay_buffer_params:
+    use_replay_buffer: &use_replay_buffer True
+    replay_buffer_size: 100
